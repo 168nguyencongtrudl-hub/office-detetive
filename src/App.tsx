@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { GameMode, Language, Screen } from './types';
 import { TopBar } from './components/TopBar';
 import { HeroScreen } from './components/HeroScreen';
@@ -18,6 +18,13 @@ export default function App() {
   const [gameMode, setGameMode] = useState<GameMode>('solo');
   const [gameKey, setGameKey] = useState<number>(0);
   const [activeModal, setActiveModal] = useState<'reset' | 'end' | null>(null);
+
+  useEffect(() => {
+    document.title = lang === 'vi'
+      ? 'AI Thám Tử Công Sở - Trò Chơi Giải Đố & Suy Luận'
+      : 'AI Office Detective - Workplace Mystery & Deduction Game';
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const [currentStats, setCurrentStats] = useState<FinalGameStats>({
     score: 0,

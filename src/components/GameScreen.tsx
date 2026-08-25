@@ -241,7 +241,9 @@ export const GameScreen: React.FC<GameScreenProps> = ({
         sfx.playFireworksSound();
         triggerFireworks(window.innerWidth / 2, window.innerHeight / 2, 80);
 
-        const timeBonusText = timeRed > 0 ? ` (+${timeRed * 2}đ thưởng tốc độ)` : ` (10đ)`;
+        const timeBonusText = timeRed > 0
+          ? (lang === 'vi' ? ` (+${timeRed * 2}đ thưởng tốc độ)` : ` (+${timeRed * 2} speed bonus)`)
+          : (lang === 'vi' ? ' (10đ)' : ' (10 pts)');
         setFeedbackHtml({
           status: 'correct',
           title: lang === 'vi' ? 'ĐÚNG! Chính xác!' : 'CORRECT! Exactly!',
@@ -321,12 +323,14 @@ export const GameScreen: React.FC<GameScreenProps> = ({
 
       let resultHeader = '';
       if (redCorrect && blueCorrect) {
-        const winnerFirst = pickOrderRed < pickOrderBlue ? '🔴 Đội Đỏ' : '🔵 Đội Xanh';
+        const winnerFirst = pickOrderRed < pickOrderBlue
+          ? (lang === 'vi' ? '🔴 Đội Đỏ' : '🔴 Red Team')
+          : (lang === 'vi' ? '🔵 Đội Xanh' : '🔵 Blue Team');
         resultHeader = `🎉 ${lang === 'vi' ? 'CẢ 2 ĐỘI ĐỀU ĐÚNG!' : 'BOTH TEAMS CORRECT!'} (${winnerFirst} ${lang === 'vi' ? 'chốt trước!' : 'picked first!'})`;
       } else if (redCorrect) {
-        resultHeader = `🔴 ${lang === 'vi' ? 'ĐỘI ĐỎ GIÀNH ĐIỂM!' : 'RED TEAM SCORED!'} (+${ptsRed} điểm)`;
+        resultHeader = `🔴 ${lang === 'vi' ? 'ĐỘI ĐỎ GIÀNH ĐIỂM!' : 'RED TEAM SCORED!'} (+${ptsRed} ${lang === 'vi' ? 'điểm' : 'pts'})`;
       } else if (blueCorrect) {
-        resultHeader = `🔵 ${lang === 'vi' ? 'ĐỘI XANH GIÀNH ĐIỂM!' : 'BLUE TEAM SCORED!'} (+${ptsBlue} điểm)`;
+        resultHeader = `🔵 ${lang === 'vi' ? 'ĐỘI XANH GIÀNH ĐIỂM!' : 'BLUE TEAM SCORED!'} (+${ptsBlue} ${lang === 'vi' ? 'điểm' : 'pts'})`;
       } else {
         resultHeader = `❌ ${lang === 'vi' ? 'KHÔNG ĐỘI NÀO ĐÚNG!' : 'NO TEAM SCORED!'}`;
       }
@@ -336,9 +340,9 @@ export const GameScreen: React.FC<GameScreenProps> = ({
         title: resultHeader,
         detailHtml: (
           <div className="text-xs my-1 p-2 bg-white/5 rounded-lg text-left">
-            🔴 <b>Đỏ:</b> {pickRed || '—'} ({redCorrect ? `+${ptsRed}đ` : '0đ'}) • <span className="text-slate-300">{redOrderText}</span>
+            🔴 <b>{lang === 'vi' ? 'Đỏ' : 'Red'}:</b> {pickRed || (lang === 'vi' ? 'Chưa chọn' : 'No pick')} ({redCorrect ? `+${ptsRed}${lang === 'vi' ? 'đ' : 'pts'}` : `0${lang === 'vi' ? 'đ' : 'pts'}`}) • <span className="text-slate-300">{redOrderText}</span>
             <br />
-            🔵 <b>Xanh:</b> {pickBlue || '—'} ({blueCorrect ? `+${ptsBlue}đ` : '0đ'}) • <span className="text-slate-300">{blueOrderText}</span>
+            🔵 <b>{lang === 'vi' ? 'Xanh' : 'Blue'}:</b> {pickBlue || (lang === 'vi' ? 'Chưa chọn' : 'No pick')} ({blueCorrect ? `+${ptsBlue}${lang === 'vi' ? 'đ' : 'pts'}` : `0${lang === 'vi' ? 'đ' : 'pts'}`}) • <span className="text-slate-300">{blueOrderText}</span>
           </div>
         ),
         explanation: `${lang === 'vi' ? 'Đáp án đúng:' : 'Correct answer:'} ${correctVal}. ${q.explanation}`,
@@ -650,9 +654,11 @@ export const GameScreen: React.FC<GameScreenProps> = ({
               {/* Red Team Panel */}
               <div className="rounded-xl p-1.5 sm:p-2 border border-red-400/40 bg-gradient-to-b from-red-950/40 to-black/30">
                 <div className="flex justify-between items-center mb-1 pb-0.5 border-b border-white/10">
-                  <span className="font-black text-xs text-rose-400">🔴 ĐỘI ĐỎ</span>
+                  <span className="font-black text-xs text-rose-400">
+                    🔴 {lang === 'vi' ? 'ĐỘI ĐỎ' : 'RED TEAM'}
+                  </span>
                   <span className="font-black text-[11px] px-1.5 py-0.5 rounded-full bg-white/10">
-                    {scoreRed} pt
+                    {scoreRed} {lang === 'vi' ? 'điểm' : 'pts'}
                   </span>
                 </div>
                 <div className={`text-[10px] font-extrabold mb-1 min-h-[14px] ${pickRed ? 'text-emerald-400' : 'text-amber-400'}`}>
@@ -693,9 +699,11 @@ export const GameScreen: React.FC<GameScreenProps> = ({
               {/* Blue Team Panel */}
               <div className="rounded-xl p-1.5 sm:p-2 border border-blue-400/40 bg-gradient-to-b from-blue-950/40 to-black/30">
                 <div className="flex justify-between items-center mb-1 pb-0.5 border-b border-white/10">
-                  <span className="font-black text-xs text-blue-400">🔵 ĐỘI XANH</span>
+                  <span className="font-black text-xs text-blue-400">
+                    🔵 {lang === 'vi' ? 'ĐỘI XANH' : 'BLUE TEAM'}
+                  </span>
                   <span className="font-black text-[11px] px-1.5 py-0.5 rounded-full bg-white/10">
-                    {scoreBlue} pt
+                    {scoreBlue} {lang === 'vi' ? 'điểm' : 'pts'}
                   </span>
                 </div>
                 <div className={`text-[10px] font-extrabold mb-1 min-h-[14px] ${pickBlue ? 'text-emerald-400' : 'text-amber-400'}`}>

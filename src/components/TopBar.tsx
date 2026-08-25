@@ -60,7 +60,9 @@ export const TopBar: React.FC<TopBarProps> = ({
           className="badge-btn inline-flex items-center gap-1 px-2 py-1 rounded-full font-extrabold text-[11px] border border-white/20 bg-white/10 text-white cursor-pointer hover:bg-white/20 transition-all"
           onClick={toggleSound}
         >
-          {soundEnabled ? '🔊 Sound ON' : '🔇 Sound OFF'}
+          {soundEnabled
+            ? (lang === 'vi' ? '🔊 Âm thanh: BẬT' : '🔊 Sound: ON')
+            : (lang === 'vi' ? '🔇 Âm thanh: TẮT' : '🔇 Sound: OFF')}
         </button>
 
         <button
@@ -88,7 +90,7 @@ export const TopBar: React.FC<TopBarProps> = ({
           className="badge-btn inline-flex items-center gap-1 px-2 py-1 rounded-full font-extrabold text-[11px] border border-red-500/40 bg-red-500/20 text-white cursor-pointer hover:bg-red-500/30 transition-all"
           onClick={onReset}
         >
-          🔄 Reset
+          🔄 {lang === 'vi' ? 'Làm mới' : 'Reset'}
         </button>
 
         <button

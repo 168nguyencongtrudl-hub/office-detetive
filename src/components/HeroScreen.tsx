@@ -18,7 +18,15 @@ export const HeroScreen: React.FC<HeroScreenProps> = ({
     <div className="hero text-center py-2 flex flex-col justify-center items-center h-full">
       <div className="text-[50px] mb-1.5 animate-bounce">🕵️‍♂️</div>
       <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-1.5 tracking-tight">
-        AI THÁM TỬ <span className="text-amber-400">CÔNG SỞ</span>
+        {lang === 'vi' ? (
+          <>
+            AI THÁM TỬ <span className="text-amber-400">CÔNG SỞ</span>
+          </>
+        ) : (
+          <>
+            AI OFFICE <span className="text-amber-400">DETECTIVE</span>
+          </>
+        )}
       </h1>
       <p className="text-slate-300 text-sm sm:text-base mb-4 max-w-lg">
         {lang === 'vi'
@@ -35,7 +43,7 @@ export const HeroScreen: React.FC<HeroScreenProps> = ({
           }`}
           onClick={() => onSetMode('solo')}
         >
-          👤 {lang === 'vi' ? 'Chơi Đơn (1 Người)' : 'Solo Mode'}
+          👤 {lang === 'vi' ? 'Chơi Đơn (1 Người)' : 'Solo Mode (1 Player)'}
         </button>
         <button
           className={`px-4 py-2 rounded-xl border-2 font-extrabold text-[13px] cursor-pointer transition-all ${
@@ -53,7 +61,7 @@ export const HeroScreen: React.FC<HeroScreenProps> = ({
         className="btn-gold border-0 rounded-full px-7 py-2.5 text-sm sm:text-base font-black cursor-pointer bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 text-slate-900 shadow-[0_6px_20px_rgba(250,204,21,0.35)] hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(250,204,21,0.5)] transition-all"
         onClick={onStart}
       >
-        🚨 {lang === 'vi' ? 'BẮT ĐẦU VỤ ÁN' : 'START GAME'}
+        🚨 {lang === 'vi' ? 'BẮT ĐẦU VỤ ÁN' : 'START CASE'}
       </button>
     </div>
   );

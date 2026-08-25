@@ -126,13 +126,13 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
         <div className="min-w-[130px] border border-red-400/40 p-3 rounded-2xl bg-gradient-to-b from-red-950/40 to-black/20">
           <strong className="block text-3xl font-black text-rose-400">{stats.scoreRed}</strong>
           <span className="text-xs text-rose-200 font-bold">
-            🔴 Đội Đỏ ({stats.rightRed}/{totalQ} {lang === 'vi' ? 'đúng' : 'correct'})
+            🔴 {lang === 'vi' ? 'Đội Đỏ' : 'Red Team'} ({stats.rightRed}/{totalQ} {lang === 'vi' ? 'đúng' : 'correct'})
           </span>
         </div>
         <div className="min-w-[130px] border border-blue-400/40 p-3 rounded-2xl bg-gradient-to-b from-blue-950/40 to-black/20">
           <strong className="block text-3xl font-black text-blue-400">{stats.scoreBlue}</strong>
           <span className="text-xs text-blue-200 font-bold">
-            🔵 Đội Xanh ({stats.rightBlue}/{totalQ} {lang === 'vi' ? 'đúng' : 'correct'})
+            🔵 {lang === 'vi' ? 'Đội Xanh' : 'Blue Team'} ({stats.rightBlue}/{totalQ} {lang === 'vi' ? 'đúng' : 'correct'})
           </span>
         </div>
       </div>
