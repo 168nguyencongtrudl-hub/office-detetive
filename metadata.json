@@ -1,0 +1,8 @@
+{
+  "name": "AI Thám Tử Công Sở",
+  "description": "Trò chơi giải đố và suy luận tình huống công sở vui nhộn với 30 câu hỏi độc đáo không trùng lặp, hỗ trợ Chơi Đơn và Thách Đấu 2 Đội.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
