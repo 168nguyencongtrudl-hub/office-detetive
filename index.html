@@ -8,6 +8,28 @@
     <meta property="og:title" content="AI Thám Tử Công Sở" />
     <meta property="og:description" content="Nhìn tình huống → Tìm manh mối → Phá bẫy → Trả lời đúng!" />
     <meta property="og:type" content="website" />
+    <script>
+      (function () {
+        try {
+          var originalFetch = window.fetch;
+          if (typeof originalFetch === 'function') {
+            var currentFetch = originalFetch.bind(window);
+            Object.defineProperty(window, 'fetch', {
+              get: function () {
+                return currentFetch;
+              },
+              set: function (val) {
+                currentFetch = val;
+              },
+              configurable: true,
+              enumerable: true,
+            });
+          }
+        } catch (e) {
+          // ignore if environment restricts property definition
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
