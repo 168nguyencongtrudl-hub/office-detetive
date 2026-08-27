@@ -57,36 +57,36 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
         : '😂 ROOKIE DETECTIVE';
 
     return (
-      <div className="text-center p-4 md:p-8 flex flex-col justify-center items-center h-full max-w-4xl mx-auto">
-        <div className="text-7xl sm:text-8xl md:text-9xl mb-3 md:mb-5 animate-bounce drop-shadow-[0_0_30px_rgba(250,204,21,0.5)] select-none">
+      <div className="text-center p-3 sm:p-5 md:p-8 flex flex-col justify-center items-center h-full max-w-4xl mx-auto overflow-y-auto sm:overflow-hidden">
+        <div className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mb-2 sm:mb-3 md:mb-4 animate-bounce drop-shadow-[0_0_30px_rgba(250,204,21,0.5)] select-none">
           {accuracy >= 75 ? '🏆' : '🤣'}
         </div>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-3 text-white tracking-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-2 sm:mb-3 text-white tracking-tight">
           {lang === 'vi' ? 'TỔNG KẾT HỒ SƠ PHÁ ÁN' : 'INVESTIGATION SUMMARY'}
         </h2>
-        <div className="flex justify-center gap-3 sm:gap-4 md:gap-6 flex-wrap my-4 md:my-6 w-full">
-          <div className="min-w-[130px] sm:min-w-[150px] md:min-w-[180px] border-2 border-white/20 p-3 sm:p-4 md:p-5 rounded-2xl md:rounded-3xl bg-white/5 shadow-lg">
-            <strong className="block text-3xl sm:text-4xl md:text-5xl font-black text-amber-400">{stats.score}</strong>
+        <div className="flex justify-center gap-2.5 sm:gap-4 md:gap-6 flex-wrap my-3 sm:my-4 md:my-6 w-full">
+          <div className="min-w-[120px] sm:min-w-[140px] md:min-w-[170px] border-2 border-white/20 p-2.5 sm:p-3.5 md:p-5 rounded-2xl md:rounded-3xl bg-white/5 shadow-lg">
+            <strong className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-amber-400">{stats.score}</strong>
             <span className="text-xs sm:text-sm md:text-base text-slate-200 font-bold mt-1 block">
               {lang === 'vi' ? 'Tổng điểm' : 'Total Score'}
             </span>
           </div>
-          <div className="min-w-[130px] sm:min-w-[150px] md:min-w-[180px] border-2 border-white/20 p-3 sm:p-4 md:p-5 rounded-2xl md:rounded-3xl bg-white/5 shadow-lg">
-            <strong className="block text-3xl sm:text-4xl md:text-5xl font-black text-emerald-400">
+          <div className="min-w-[120px] sm:min-w-[140px] md:min-w-[170px] border-2 border-white/20 p-2.5 sm:p-3.5 md:p-5 rounded-2xl md:rounded-3xl bg-white/5 shadow-lg">
+            <strong className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-emerald-400">
               {stats.right}/{totalQ}
             </strong>
             <span className="text-xs sm:text-sm md:text-base text-slate-200 font-bold mt-1 block">
               {lang === 'vi' ? 'Câu đúng' : 'Correct'}
             </span>
           </div>
-          <div className="min-w-[130px] sm:min-w-[150px] md:min-w-[180px] border-2 border-white/20 p-3 sm:p-4 md:p-5 rounded-2xl md:rounded-3xl bg-white/5 shadow-lg">
-            <strong className="block text-3xl sm:text-4xl md:text-5xl font-black text-sky-400">{accuracy}%</strong>
+          <div className="min-w-[120px] sm:min-w-[140px] md:min-w-[170px] border-2 border-white/20 p-2.5 sm:p-3.5 md:p-5 rounded-2xl md:rounded-3xl bg-white/5 shadow-lg">
+            <strong className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-sky-400">{accuracy}%</strong>
             <span className="text-xs sm:text-sm md:text-base text-slate-200 font-bold mt-1 block">
               {lang === 'vi' ? 'Chính xác' : 'Accuracy'}
             </span>
           </div>
-          <div className="min-w-[130px] sm:min-w-[150px] md:min-w-[180px] border-2 border-cyan-400/40 p-3 sm:p-4 md:p-5 rounded-2xl md:rounded-3xl bg-cyan-950/30 shadow-[0_0_20px_rgba(34,211,238,0.2)]">
-            <strong className="block text-3xl sm:text-4xl md:text-5xl font-black text-cyan-300 font-mono">
+          <div className="min-w-[120px] sm:min-w-[140px] md:min-w-[170px] border-2 border-cyan-400/40 p-2.5 sm:p-3.5 md:p-5 rounded-2xl md:rounded-3xl bg-cyan-950/30 shadow-[0_0_20px_rgba(34,211,238,0.2)]">
+            <strong className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-cyan-300 font-mono">
               {formatTime(stats.elapsedSeconds)}
             </strong>
             <span className="text-xs sm:text-sm md:text-base text-slate-200 font-bold mt-1 block">
@@ -94,11 +94,11 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
             </span>
           </div>
         </div>
-        <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black my-3 md:my-5 text-amber-300 px-6 sm:px-8 py-2 md:py-3 rounded-full bg-amber-400/20 border-2 border-amber-400/40 shadow-md">
+        <div className="text-base sm:text-xl md:text-2xl lg:text-3xl font-black my-2 sm:my-3 md:my-4 text-amber-300 px-5 sm:px-8 py-1.5 sm:py-2 md:py-2.5 rounded-full bg-amber-400/20 border-2 border-amber-400/40 shadow-md">
           {rankTitle}
         </div>
         <button
-          className="btn-gold border-0 rounded-full px-8 py-3.5 sm:px-10 sm:py-4 md:px-12 md:py-5 text-base sm:text-lg md:text-xl font-black cursor-pointer bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 shadow-xl hover:brightness-110 transition-all mt-3 active:scale-98"
+          className="btn-gold border-0 rounded-full px-7 py-3 sm:px-9 sm:py-3.5 md:px-11 md:py-4 text-sm sm:text-base md:text-lg font-black cursor-pointer bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 shadow-xl hover:brightness-110 transition-all mt-2 active:scale-98"
           onClick={onPlayAgain}
         >
           🔄 {lang === 'vi' ? 'PHÁ ÁN LẠI TỪ ĐẦU' : 'PLAY AGAIN'}
@@ -121,33 +121,33 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
   }
 
   return (
-    <div className="text-center p-4 md:p-8 flex flex-col justify-center items-center h-full max-w-4xl mx-auto">
-      <div className="text-7xl sm:text-8xl md:text-9xl mb-3 md:mb-5 animate-bounce drop-shadow-[0_0_30px_rgba(250,204,21,0.5)] select-none">
+    <div className="text-center p-3 sm:p-5 md:p-8 flex flex-col justify-center items-center h-full max-w-4xl mx-auto overflow-y-auto sm:overflow-hidden">
+      <div className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mb-2 sm:mb-3 md:mb-4 animate-bounce drop-shadow-[0_0_30px_rgba(250,204,21,0.5)] select-none">
         {winnerEmoji}
       </div>
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-3 text-white tracking-tight">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-2 sm:mb-3 text-white tracking-tight">
         {winnerText}
       </h2>
-      <div className="flex justify-center gap-4 sm:gap-6 md:gap-8 flex-wrap my-4 md:my-6 w-full">
-        <div className="min-w-[160px] sm:min-w-[200px] md:min-w-[240px] border-2 border-red-400/50 p-4 sm:p-5 md:p-6 rounded-2xl md:rounded-3xl bg-gradient-to-b from-red-950/60 to-black/40 shadow-xl">
-          <strong className="block text-4xl sm:text-5xl md:text-6xl font-black text-rose-400">{stats.scoreRed}</strong>
-          <span className="text-sm sm:text-base md:text-lg text-rose-200 font-black mt-2 block">
+      <div className="flex justify-center gap-3 sm:gap-5 md:gap-7 flex-wrap my-3 sm:my-4 md:my-6 w-full">
+        <div className="min-w-[140px] sm:min-w-[180px] md:min-w-[220px] border-2 border-red-400/50 p-3 sm:p-4 md:p-5 rounded-2xl md:rounded-3xl bg-gradient-to-b from-red-950/60 to-black/40 shadow-xl">
+          <strong className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-rose-400">{stats.scoreRed}</strong>
+          <span className="text-xs sm:text-sm md:text-base text-rose-200 font-black mt-1.5 block">
             🔴 {lang === 'vi' ? 'Đội Đỏ' : 'Red Team'} ({stats.rightRed}/{totalQ} {lang === 'vi' ? 'đúng' : 'correct'})
           </span>
         </div>
-        <div className="min-w-[160px] sm:min-w-[200px] md:min-w-[240px] border-2 border-blue-400/50 p-4 sm:p-5 md:p-6 rounded-2xl md:rounded-3xl bg-gradient-to-b from-blue-950/60 to-black/40 shadow-xl">
-          <strong className="block text-4xl sm:text-5xl md:text-6xl font-black text-blue-400">{stats.scoreBlue}</strong>
-          <span className="text-sm sm:text-base md:text-lg text-blue-200 font-black mt-2 block">
+        <div className="min-w-[140px] sm:min-w-[180px] md:min-w-[220px] border-2 border-blue-400/50 p-3 sm:p-4 md:p-5 rounded-2xl md:rounded-3xl bg-gradient-to-b from-blue-950/60 to-black/40 shadow-xl">
+          <strong className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-blue-400">{stats.scoreBlue}</strong>
+          <span className="text-xs sm:text-sm md:text-base text-blue-200 font-black mt-1.5 block">
             🔵 {lang === 'vi' ? 'Đội Xanh' : 'Blue Team'} ({stats.rightBlue}/{totalQ} {lang === 'vi' ? 'đúng' : 'correct'})
           </span>
         </div>
       </div>
-      <div className="text-sm sm:text-base md:text-lg font-black text-cyan-300 bg-cyan-950/50 border border-cyan-400/40 px-5 py-2 rounded-full inline-block mb-4 font-mono shadow-md">
+      <div className="text-xs sm:text-sm md:text-base font-black text-cyan-300 bg-cyan-950/50 border border-cyan-400/40 px-4 py-1.5 rounded-full inline-block mb-3 font-mono shadow-md">
         ⏱️ {lang === 'vi' ? 'Tổng thời gian trận đấu:' : 'Total Match Time:'} {formatTime(stats.elapsedSeconds)}
       </div>
       <div>
         <button
-          className="btn-gold border-0 rounded-full px-8 py-3.5 sm:px-10 sm:py-4 md:px-12 md:py-5 text-base sm:text-lg md:text-xl font-black cursor-pointer bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 shadow-xl hover:brightness-110 transition-all active:scale-98"
+          className="btn-gold border-0 rounded-full px-7 py-3 sm:px-9 sm:py-3.5 md:px-11 md:py-4 text-sm sm:text-base md:text-lg font-black cursor-pointer bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 shadow-xl hover:brightness-110 transition-all active:scale-98"
           onClick={onPlayAgain}
         >
           🔄 {lang === 'vi' ? 'THÁCH ĐẤU LẠI' : 'REMATCH'}
