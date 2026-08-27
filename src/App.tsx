@@ -98,7 +98,7 @@ export default function App() {
       <FireworksCanvas ref={fireworksRef} />
       <div className="signature-tag select-none">tambmt'</div>
 
-      <div className="w-[98%] max-w-[1400px] h-[100dvh] mx-auto p-1.5 sm:p-2.5 flex flex-col overflow-hidden">
+      <div className="w-[98%] max-w-[1600px] h-[100dvh] mx-auto p-2 sm:p-4 flex flex-col overflow-hidden">
         <TopBar
           lang={lang}
           onSetLang={setLang}
@@ -107,7 +107,7 @@ export default function App() {
         />
 
         {/* Main Card */}
-        <div className="border border-white/15 bg-slate-900/85 rounded-2xl p-2 sm:p-3.5 backdrop-blur-xl shadow-2xl flex-1 flex flex-col justify-between min-h-0 overflow-hidden">
+        <div className="border border-white/20 bg-slate-900/90 rounded-2xl sm:rounded-3xl p-3 sm:p-5 md:p-6 backdrop-blur-xl shadow-2xl flex-1 flex flex-col justify-between min-h-0 overflow-hidden">
           {screen === 'home' && (
             <HeroScreen
               lang={lang}

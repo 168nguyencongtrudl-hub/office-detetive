@@ -42,14 +42,15 @@ export const TopBar: React.FC<TopBarProps> = ({
   };
 
   return (
-    <div className="flex justify-between items-center gap-2.5 flex-wrap mb-1 shrink-0">
-      <div className="text-[18px] font-black tracking-tight select-none">
-        🕵️ AI <b className="text-amber-400">{lang === 'vi' ? 'THÁM TỬ CÔNG SỞ' : 'OFFICE DETECTIVE'}</b>
+    <div className="flex justify-between items-center gap-3 flex-wrap mb-2 shrink-0">
+      <div className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight select-none flex items-center gap-2">
+        <span>🕵️ AI</span>
+        <b className="text-amber-400">{lang === 'vi' ? 'THÁM TỬ CÔNG SỞ' : 'OFFICE DETECTIVE'}</b>
       </div>
-      <div className="flex gap-1.5 items-center flex-wrap">
+      <div className="flex gap-2 items-center flex-wrap">
         <button
           id="fullscreenBtn"
-          className="badge-btn inline-flex items-center gap-1 px-2 py-1 rounded-full font-extrabold text-[11px] border border-white/20 bg-white/10 text-white cursor-pointer hover:bg-white/20 transition-all"
+          className="badge-btn inline-flex items-center gap-1.5 px-3 py-1.5 md:px-3.5 md:py-2 rounded-full font-black text-xs md:text-sm border border-white/20 bg-white/10 text-white cursor-pointer hover:bg-white/20 transition-all"
           onClick={toggleFullscreen}
         >
           ⛶ <span id="fsText">{isFullscreen ? (lang === 'vi' ? 'Thu nhỏ' : 'Exit Full') : (lang === 'vi' ? 'Toàn màn hình' : 'Fullscreen')}</span>
@@ -57,7 +58,7 @@ export const TopBar: React.FC<TopBarProps> = ({
 
         <button
           id="soundBtn"
-          className="badge-btn inline-flex items-center gap-1 px-2 py-1 rounded-full font-extrabold text-[11px] border border-white/20 bg-white/10 text-white cursor-pointer hover:bg-white/20 transition-all"
+          className="badge-btn inline-flex items-center gap-1.5 px-3 py-1.5 md:px-3.5 md:py-2 rounded-full font-black text-xs md:text-sm border border-white/20 bg-white/10 text-white cursor-pointer hover:bg-white/20 transition-all"
           onClick={toggleSound}
         >
           {soundEnabled
@@ -67,8 +68,8 @@ export const TopBar: React.FC<TopBarProps> = ({
 
         <button
           id="langVI"
-          className={`badge-btn inline-flex items-center gap-1 px-2 py-1 rounded-full font-extrabold text-[11px] border border-white/20 text-white cursor-pointer transition-all ${
-            lang === 'vi' ? 'bg-white/25 border-amber-400/50' : 'bg-white/10 hover:bg-white/20'
+          className={`badge-btn inline-flex items-center gap-1.5 px-3 py-1.5 md:px-3.5 md:py-2 rounded-full font-black text-xs md:text-sm border border-white/20 text-white cursor-pointer transition-all ${
+            lang === 'vi' ? 'bg-white/25 border-amber-400 shadow-[0_0_10px_rgba(250,204,21,0.3)]' : 'bg-white/10 hover:bg-white/20'
           }`}
           onClick={() => onSetLang('vi')}
         >
@@ -77,8 +78,8 @@ export const TopBar: React.FC<TopBarProps> = ({
 
         <button
           id="langEN"
-          className={`badge-btn inline-flex items-center gap-1 px-2 py-1 rounded-full font-extrabold text-[11px] border border-white/20 text-white cursor-pointer transition-all ${
-            lang === 'en' ? 'bg-white/25 border-amber-400/50' : 'bg-white/10 hover:bg-white/20'
+          className={`badge-btn inline-flex items-center gap-1.5 px-3 py-1.5 md:px-3.5 md:py-2 rounded-full font-black text-xs md:text-sm border border-white/20 text-white cursor-pointer transition-all ${
+            lang === 'en' ? 'bg-white/25 border-amber-400 shadow-[0_0_10px_rgba(250,204,21,0.3)]' : 'bg-white/10 hover:bg-white/20'
           }`}
           onClick={() => onSetLang('en')}
         >
@@ -87,7 +88,7 @@ export const TopBar: React.FC<TopBarProps> = ({
 
         <button
           id="resetBtn"
-          className="badge-btn inline-flex items-center gap-1 px-2 py-1 rounded-full font-extrabold text-[11px] border border-red-500/40 bg-red-500/20 text-white cursor-pointer hover:bg-red-500/30 transition-all"
+          className="badge-btn inline-flex items-center gap-1.5 px-3.5 py-1.5 md:px-4 md:py-2 rounded-full font-black text-xs md:text-sm border border-red-500/50 bg-red-500/25 text-white cursor-pointer hover:bg-red-500/35 transition-all shadow-[0_0_10px_rgba(239,68,68,0.2)]"
           onClick={onReset}
         >
           🔄 {lang === 'vi' ? 'Làm mới' : 'Reset'}
@@ -95,7 +96,7 @@ export const TopBar: React.FC<TopBarProps> = ({
 
         <button
           id="endBtn"
-          className="badge-btn inline-flex items-center gap-1 px-2 py-1 rounded-full font-extrabold text-[11px] border border-amber-500/40 bg-amber-500/20 text-white cursor-pointer hover:bg-amber-500/30 transition-all"
+          className="badge-btn inline-flex items-center gap-1.5 px-3.5 py-1.5 md:px-4 md:py-2 rounded-full font-black text-xs md:text-sm border border-amber-500/50 bg-amber-500/25 text-white cursor-pointer hover:bg-amber-500/35 transition-all shadow-[0_0_10px_rgba(245,158,11,0.2)]"
           onClick={onEndGame}
         >
           🏁 {lang === 'vi' ? 'Kết thúc' : 'End Game'}
